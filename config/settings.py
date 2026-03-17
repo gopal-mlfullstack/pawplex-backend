@@ -31,7 +31,9 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=True)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["*"])
+ALLOWED_HOSTS = env.list(
+    "ALLOWED_HOSTS", default=["gopalmahatobackend.pythonanywhere.com"]
+)
 
 
 # Application definition
@@ -186,8 +188,7 @@ SIMPLE_JWT = {
 }
 
 
-MOBILE_URL = env("MOBILE_URL", default="http://localhost:5173")
-DASHBOARD_URL = env("DASHBOARD_URL", default="http://localhost:5174")
+MOBILE_URL = env("MOBILE_URL", default="https://petpluscare.netlify.app")
 
 
 CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
@@ -199,6 +200,7 @@ CELERY_TIMEZONE = "Asia/Kolkata"
 
 
 CORS_ALLOWED_ORIGINS = [
+    "https://petpluscare.netlify.app",
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
@@ -228,3 +230,4 @@ CORS_ALLOW_METHODS = [
     "POST",
     "PUT",
 ]
+CSRF_TRUSTED_ORIGINS = ["https://petpluscare.netlify.app"]
